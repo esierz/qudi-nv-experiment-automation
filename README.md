@@ -22,3 +22,50 @@ If you found a bug and located it already, please note GitHub's [issue tracking]
 ## Copyright
 Check [AUTHORS.md](AUTHORS.md) for a list of authors and the git history for their individual
 contributions.
+
+---
+
+## Updating from Upstream
+
+This repository is a fork of the official  
+[qudi-iqo-modules](https://github.com/Ulm-IQO/qudi-iqo-modules) repository.
+
+We use two main branches:
+
+- `main` – Clean mirror of the upstream repository  
+- `lab-main` – Lab branch containing all custom modifications  
+
+### Updating `main` from upstream
+
+When the upstream repository is updated, pull changes into `main`:
+
+```bash
+git checkout main
+git fetch upstream
+git merge upstream/main
+git push origin main
+````
+
+This keeps your `main` branch aligned with the original project.
+
+### Updating `lab-main` from `main`
+
+Once `main` is updated, merge those changes into your lab branch:
+
+```bash
+git checkout lab-main
+git merge main
+git push origin lab-main
+```
+
+Finally, resolve conflicts.
+
+### Update Flow Summary
+
+```text
+upstream/main → main → lab-main
+```
+
+* `main` tracks the original project
+* `lab-main` includes all lab-specific changes
+* Always update `main` before merging into `lab-main`
